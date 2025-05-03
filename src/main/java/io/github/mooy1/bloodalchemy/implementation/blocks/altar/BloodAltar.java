@@ -5,8 +5,18 @@ import java.util.Locale.Category;
 
 import javax.annotation.Nonnull;
 
+import io.github.mooy1.bloodalchemy.CoolDownMap;
+import io.github.mooy1.bloodalchemy.RecipeMap;
+import io.github.mooy1.bloodalchemy.RecipeOutput;
+import io.github.mooy1.bloodalchemy.ShapelessRecipe;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.NamespacedKey;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.World;
@@ -19,12 +29,6 @@ import org.bukkit.inventory.ShapelessRecipe;
 
 import io.github.mooy1.bloodalchemy.BloodAlchemy;
 import io.github.mooy1.bloodalchemy.implementation.Items;
-import io.github.mooy1.infinitylib.players.CoolDownMap;
-import io.github.mooy1.infinitylib.recipes.RecipeMap;
-import io.github.mooy1.infinitylib.recipes.RecipeOutput;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
 
 /**
@@ -34,11 +38,11 @@ public final class BloodAltar extends SlimefunItem {
 
     private static final RecipeMap<ItemStack> RECIPES = new RecipeMap<>(ShapelessRecipe::new);
 
-    public static final RecipeType TYPE = new RecipeType(BloodAlchemy.inst().getKey("blood_altar"), Items.BLOOD_ALTAR, RECIPES::put);
+    public static final RecipeType TYPE = new RecipeType(new NamespacedKey(BloodAlchemy.inst(), "blood_altar"), Items.BLOOD_ALTAR, RECIPES::put);
 
     private final CoolDownMap coolDowns = new CoolDownMap(200);
 
-    public BloodAltar(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    public BloodAltar(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
 
         addItemHandler(getUseHandler());
@@ -89,7 +93,7 @@ public final class BloodAltar extends SlimefunItem {
         w.spawnParticle(Particle.PORTAL, l, 50);
 
         // Start processing the recipe
-        BloodAlchemy.inst().runSync(new AltarProcess(this, output, l));
+        Slimefun.runSync(new AltarProcess(this, output, l));
     }
 
 }

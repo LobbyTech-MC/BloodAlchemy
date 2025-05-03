@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import lombok.experimental.UtilityClass;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,8 +20,6 @@ import org.bukkit.persistence.PersistentDataType;
 
 import io.github.mooy1.bloodalchemy.BloodAlchemy;
 import io.github.mooy1.bloodalchemy.implementation.Items;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import lombok.experimental.UtilityClass;
 
 /**
  * Utility methods for blood related things

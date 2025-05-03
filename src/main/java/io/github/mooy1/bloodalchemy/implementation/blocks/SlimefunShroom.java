@@ -6,6 +6,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.annotation.Nonnull;
 
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import org.bukkit.Bukkit;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
@@ -33,7 +38,7 @@ public final class SlimefunShroom extends SlimefunItem implements Listener {
     private final PotionEffect effect;
     private final Particle particle;
 
-    public SlimefunShroom(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe,
+    public SlimefunShroom(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe,
                           PotionEffect effect, Particle particle) {
         super(category, item, recipeType, recipe);
         this.effect = effect;
@@ -41,7 +46,7 @@ public final class SlimefunShroom extends SlimefunItem implements Listener {
 
         addItemHandler(getTicker());
 
-        BloodAlchemy.inst().registerListener(this);
+        Bukkit.getPluginManager().registerEvents(this, BloodAlchemy.inst());
     }
 
     private BlockTicker getTicker() {

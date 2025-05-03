@@ -5,6 +5,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.annotation.Nonnull;
 
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
@@ -31,13 +36,13 @@ public final class BloodHopper extends SlimefunItem implements Listener {
 
     private final int chance;
 
-    public BloodHopper(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int chance) {
+    public BloodHopper(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int chance) {
         super(category, item, recipeType, recipe);
         this.chance = chance;
 
         addItemHandler(new VanillaInventoryDropHandler<>(Hopper.class));
 
-        BloodAlchemy.inst().registerListener(this);
+        Bukkit.getPluginManager().registerEvents(this, BloodAlchemy.inst());
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)

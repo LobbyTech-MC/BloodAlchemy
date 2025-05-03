@@ -4,6 +4,13 @@ import java.util.Locale.Category;
 
 import javax.annotation.Nonnull;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
@@ -15,16 +22,15 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 
 public final class SlimefunSeed extends SlimefunItem {
 
     public static final RecipeType TYPE = new RecipeType(BloodAlchemy.inst().getKey("farming"),
-            new CustomItem(Material.DIAMOND_HOE, "&e快了..."));
+            new CustomItemStack(Material.DIAMOND_HOE, "&e快了..."));
 
     private final SlimefunItemStack crop;
 
-    public SlimefunSeed(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, SlimefunItemStack crop) {
+    public SlimefunSeed(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, SlimefunItemStack crop) {
         super(category, item, recipeType, recipe);
         this.crop = crop;
 
@@ -36,12 +42,14 @@ public final class SlimefunSeed extends SlimefunItem {
 
             @Override
             public void onPlayerPlace(@Nonnull BlockPlaceEvent e) {
-                BlockStorage.store(e.getBlock(), SlimefunSeed.this.crop.getItemId());
+                Slimefun.getDatabaseManager().getBlockDataController().removeBlock(e.getBlock().getLocation());
+                Slimefun.getDatabaseManager().getBlockDataController().createBlock(e.getBlock().getLocation(), SlimefunSeed.this.crop.getItemId());
             }
 
             @Override
             public void onBlockPlacerPlace(@Nonnull BlockPlacerPlaceEvent e) {
-                BlockStorage.store(e.getBlock(), SlimefunSeed.this.crop.getItemId());
+                Slimefun.getDatabaseManager().getBlockDataController().removeBlock(e.getBlock().getLocation());
+                Slimefun.getDatabaseManager().getBlockDataController().createBlock(e.getBlock().getLocation(), SlimefunSeed.this.crop.getItemId());
             }
 
         };
