@@ -2,15 +2,17 @@ package io.github.mooy1.bloodalchemy;
 
 import java.util.Map;
 import java.util.Optional;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import io.github.mooy1.infinitylib.common.StackUtils;
-import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import io.github.mooy1.infinitylib.common.StackUtils;
+import lombok.Getter;
 
 public final class FastItemStack extends ItemStack {
     @Getter

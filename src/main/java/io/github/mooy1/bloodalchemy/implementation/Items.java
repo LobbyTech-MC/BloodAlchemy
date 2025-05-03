@@ -2,16 +2,8 @@ package io.github.mooy1.bloodalchemy.implementation;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Locale.Category;
 
 import javax.annotation.Nonnull;
-
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import lombok.experimental.UtilityClass;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
@@ -40,6 +32,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import lombok.experimental.UtilityClass;
 
 /**
  * Items added in this addon

@@ -1,18 +1,16 @@
 package io.github.mooy1.bloodalchemy.implementation.blocks.altar;
 
-import io.github.mooy1.bloodalchemy.RecipeOutput;
-import io.github.mooy1.bloodalchemy.ShapelessRecipe;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import lombok.RequiredArgsConstructor;
-
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapelessRecipe;
 
+import io.github.mooy1.bloodalchemy.RecipeOutput;
+import io.github.mooy1.bloodalchemy.ShapelessRecipe;
 import io.github.mooy1.bloodalchemy.utils.BloodUtils;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import lombok.RequiredArgsConstructor;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 
 /**

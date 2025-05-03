@@ -3,6 +3,7 @@ package io.github.mooy1.bloodalchemy;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+
 import javax.annotation.Nonnull;
 
 public final class CoolDownMap {

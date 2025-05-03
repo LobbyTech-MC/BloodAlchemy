@@ -7,6 +7,7 @@ package io.github.mooy1.bloodalchemy;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.Nonnull;
 
 public final class ShapelessRecipe extends AbstractRecipe {

@@ -3,8 +3,10 @@ package io.github.mooy1.bloodalchemy;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
 import org.bukkit.inventory.ItemStack;
 
 public final class RecipeMap<O> {

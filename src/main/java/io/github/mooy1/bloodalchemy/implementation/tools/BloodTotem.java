@@ -1,16 +1,9 @@
 package io.github.mooy1.bloodalchemy.implementation.tools;
 
-import java.util.Locale.Category;
 import java.util.function.BiConsumer;
 
 import javax.annotation.Nonnull;
 
-import io.github.mooy1.infinitylib.common.StackUtils;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -25,6 +18,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import io.github.mooy1.bloodalchemy.BloodAlchemy;
 import io.github.mooy1.bloodalchemy.utils.BloodUtils;
+import io.github.mooy1.infinitylib.common.StackUtils;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 
 public final class BloodTotem extends SlimefunItem implements Listener {
 

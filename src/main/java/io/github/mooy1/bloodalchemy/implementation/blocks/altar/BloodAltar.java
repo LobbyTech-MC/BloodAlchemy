@@ -1,19 +1,9 @@
 package io.github.mooy1.bloodalchemy.implementation.blocks.altar;
 
 import java.util.Collection;
-import java.util.Locale.Category;
 
 import javax.annotation.Nonnull;
 
-import io.github.mooy1.bloodalchemy.CoolDownMap;
-import io.github.mooy1.bloodalchemy.RecipeMap;
-import io.github.mooy1.bloodalchemy.RecipeOutput;
-import io.github.mooy1.bloodalchemy.ShapelessRecipe;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
@@ -25,11 +15,19 @@ import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapelessRecipe;
 
 import io.github.mooy1.bloodalchemy.BloodAlchemy;
+import io.github.mooy1.bloodalchemy.CoolDownMap;
+import io.github.mooy1.bloodalchemy.RecipeMap;
+import io.github.mooy1.bloodalchemy.RecipeOutput;
+import io.github.mooy1.bloodalchemy.ShapelessRecipe;
 import io.github.mooy1.bloodalchemy.implementation.Items;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 
 /**
  * An abstract item which crafts from items dropped in the world
