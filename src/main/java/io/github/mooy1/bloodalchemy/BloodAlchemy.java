@@ -2,33 +2,21 @@ package io.github.mooy1.bloodalchemy;
 
 import javax.annotation.Nonnull;
 
-import org.bukkit.NamespacedKey;
-
 import io.github.mooy1.bloodalchemy.implementation.Items;
 import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.mooy1.infinitylib.metrics.bukkit.Metrics;
+import org.bukkit.NamespacedKey;
 
 public final class BloodAlchemy extends AbstractAddon {
     
-    public BloodAlchemy(String githubUserName, String githubRepo, String autoUpdateBranch, String autoUpdateKey) {
-		super("LobbyTech-MC", "BloodAlchemy", "master", "auto-update");
-		// TODO Auto-generated constructor stub
-	}
+    private static BloodAlchemy instance;
 
-	private static BloodAlchemy instance;
-    private static NamespacedKey key = new NamespacedKey(instance, "blood_alchemy");
-    
+    public BloodAlchemy() {
+        super("balugaq", "BloodAlchemy", "master", "auto-update");
+    }
+
     public static BloodAlchemy inst() {
         return instance;
-    }
-    
-    protected void onAddonEnable() {
-        // All of the config and auto update stuff is taken care of in AbstractAddon#onEnable
-        Items.setup(instance = this);
-    }
-
-    protected void onAddonDisable() {
-        instance = null;
     }
 
     protected Metrics setupMetrics() {
@@ -40,26 +28,19 @@ public final class BloodAlchemy extends AbstractAddon {
         return "Mooy1/BloodAlchemy/master";
     }
 
-	public NamespacedKey getKey(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    protected void enable() {
+        // All of the config and auto update stuff is taken care of in AbstractAddon#onEnable
+        Items.setup(instance = this);
+        setupMetrics();
+    }
 
-	public NamespacedKey getKey() {
-		// TODO Auto-generated method stub
-		return new NamespacedKey(instance, "blood_alchemy");
-	}
+    @Override
+    protected void disable() {
 
-	@Override
-	protected void enable() {
-		// TODO Auto-generated method stub
-		
-	}
+    }
 
-	@Override
-	protected void disable() {
-		// TODO Auto-generated method stub
-		
-	}
-    
+    public NamespacedKey getKey(String key) {
+        return new NamespacedKey(this, key);
+    }
 }
