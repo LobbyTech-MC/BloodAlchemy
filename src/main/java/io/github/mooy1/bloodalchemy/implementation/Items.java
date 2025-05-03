@@ -74,8 +74,8 @@ public final class Items {
             "BLOOD_ALCHEMY_BLOOD_TOTEM",
             Material.TOTEM_OF_UNDYING,
             "&4血图腾",
-            "&7攻击或杀戮时获得鲜血和能量",
-            "&7当你死后充满鲜血时，你会复活",
+            "&7攻击或杀戮时获得血液和能量",
+            "&7当你死后若血液充满，你会复活",
             "",
             BloodUtils.getStoredString(0)
     );
@@ -93,7 +93,7 @@ public final class Items {
             meta -> {
                 meta.setLore(Arrays.asList(
                         ChatColor.GRAY + "杀死或伤害将会治愈你",
-                        ChatColor.GRAY + "右击空气可传送,但需要20血值",
+                        ChatColor.GRAY + "右击空气可传送,但需要20血液",
                         "",
                         BloodUtils.getStoredString(0)
                 ));
@@ -174,7 +174,7 @@ public final class Items {
             "BLOOD_ALCHEMY_GOLDEN_SEEDS",
             Material.WHEAT_SEEDS,
             "&e金色种子",
-            "&7充满了鲜血和黄金"
+            "&7充满了血液和黄金"
     );
     public static final SlimefunItemStack BLOOD_ALTAR = new SlimefunItemStack(
             "BLOOD_ALCHEMY_BLOOD_ALTAR",

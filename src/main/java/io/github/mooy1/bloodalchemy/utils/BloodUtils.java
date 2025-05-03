@@ -44,7 +44,7 @@ public final class BloodUtils {
     /**
      * The start of the line of lore that shows stored blood
      */
-    private static final String STORED_STRING_START = ChatColor.DARK_RED + "Blood: " + ChatColor.RED;
+    private static final String STORED_STRING_START = ChatColor.DARK_RED + "血液: " + ChatColor.RED;
 
     /**
      * Creates blood sounds and particles at the specified location
