@@ -2,10 +2,9 @@ package io.github.mooy1.bloodalchemy.implementation;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Locale.Category;
 
 import javax.annotation.Nonnull;
-
-import lombok.experimental.UtilityClass;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
@@ -19,8 +18,8 @@ import org.bukkit.potion.PotionEffectType;
 
 import io.github.mooy1.bloodalchemy.BloodAlchemy;
 import io.github.mooy1.bloodalchemy.implementation.blocks.BloodHopper;
-import io.github.mooy1.bloodalchemy.implementation.blocks.SlimefunSeed;
 import io.github.mooy1.bloodalchemy.implementation.blocks.SlimefunCrop;
+import io.github.mooy1.bloodalchemy.implementation.blocks.SlimefunSeed;
 import io.github.mooy1.bloodalchemy.implementation.blocks.SlimefunShroom;
 import io.github.mooy1.bloodalchemy.implementation.blocks.altar.BloodAltar;
 import io.github.mooy1.bloodalchemy.implementation.tools.BloodTotem;
@@ -29,11 +28,13 @@ import io.github.mooy1.bloodalchemy.implementation.tools.HarvestScythe;
 import io.github.mooy1.bloodalchemy.implementation.tools.InfusedVampireBlade;
 import io.github.mooy1.bloodalchemy.implementation.tools.SacrificialDagger;
 import io.github.mooy1.bloodalchemy.utils.BloodUtils;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import lombok.experimental.UtilityClass;
 import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 
 /**
@@ -98,7 +99,7 @@ public final class Items {
                         "",
                         BloodUtils.getStoredString(0)
                 ));
-                meta.addEnchant(Enchantment.DAMAGE_ALL, 3, true);
+                meta.addEnchant(Enchantment.SHARPNESS, 3, true);
                 meta.addEnchant(Enchantment.FIRE_ASPECT, 2, true);
             }
     );
@@ -118,7 +119,7 @@ public final class Items {
                 potion.setColor(Color.YELLOW);
                 potion.addCustomEffect(new PotionEffect(PotionEffectType.ABSORPTION, 14400, 4), true);
                 potion.addCustomEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 14400, 1), true);
-                potion.addCustomEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 14400, 1), true);
+                potion.addCustomEffect(new PotionEffect(PotionEffectType.RESISTANCE, 14400, 1), true);
                 potion.addCustomEffect(new PotionEffect(PotionEffectType.LUCK, 14400, 2), true);
             }
     );
@@ -141,7 +142,7 @@ public final class Items {
                 meta.setLore(Collections.singletonList(ChatColor.GRAY + "注入力量效果"));
                 PotionMeta potion = (PotionMeta) meta;
                 potion.setColor(Color.PURPLE);
-                potion.addCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 14400, 2), true);
+                potion.addCustomEffect(new PotionEffect(PotionEffectType.STRENGTH, 14400, 2), true);
             }
     );
     public static final SlimefunItemStack VAMPIRIC_REGENERATION_POTION = new SlimefunItemStack(
@@ -163,7 +164,7 @@ public final class Items {
                 meta.setLore(Collections.singletonList(ChatColor.GRAY + "充满了死亡的气息"));
                 PotionMeta potion = (PotionMeta) meta;
                 potion.setColor(Color.BLACK);
-                potion.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 0, 3), true);
+                potion.addCustomEffect(new PotionEffect(PotionEffectType.INSTANT_DAMAGE, 0, 3), true);
                 potion.addCustomEffect(new PotionEffect(PotionEffectType.POISON, 1200, 2), true);
                 potion.addCustomEffect(new PotionEffect(PotionEffectType.WITHER, 400, 2), true);
             }
@@ -221,8 +222,8 @@ public final class Items {
     //endregion
 
     public static void setup(@Nonnull BloodAlchemy plugin) {
-        Category category = new Category(plugin.getKey("blood_alchemy"),
-                new CustomItem(Material.NETHER_WART_BLOCK, "&4Blood Alchemy(血炼金术)"));
+        ItemGroup category = new ItemGroup(plugin.getKey(),
+                new CustomItemStack(Material.NETHER_WART_BLOCK, "&4血炼金术"));
 
         new SacrificialDagger(category, SACRIFICIAL_DAGGER, RecipeType.MAGIC_WORKBENCH, new ItemStack[] {
                 null, SlimefunItems.SILVER_INGOT, SlimefunItems.SILVER_INGOT,

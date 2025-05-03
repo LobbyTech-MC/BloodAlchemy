@@ -3,7 +3,6 @@ package io.github.mooy1.bloodalchemy.utils;
 import java.util.List;
 
 import javax.annotation.Nonnull;
-import lombok.experimental.UtilityClass;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -18,7 +17,8 @@ import org.bukkit.persistence.PersistentDataType;
 
 import io.github.mooy1.bloodalchemy.BloodAlchemy;
 import io.github.mooy1.bloodalchemy.implementation.Items;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import lombok.experimental.UtilityClass;
 
 /**
  * Utility methods for blood related things
